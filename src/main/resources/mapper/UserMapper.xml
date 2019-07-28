@@ -4,7 +4,7 @@
 
 	<select id="all"
 		resultType="uy.edu.cei.taller.bean.UserBean">
-		SELECT * FROM users
+		SELECT * FROM Usuarios
 	</select>
 
 </mapper>

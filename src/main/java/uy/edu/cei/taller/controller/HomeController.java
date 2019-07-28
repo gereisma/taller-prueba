@@ -6,21 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import uy.edu.cei.taller.bean.UserBean;
-import uy.edu.cei.taller.dao.UserMapper;
+import uy.edu.cei.taller.bean.UsuarioBean;
+import uy.edu.cei.taller.dao.UsuarioMapper;
 import uy.edu.cei.taller.service.MessageService;
 
 @RestController("/")
 public class HomeController {
 
-	private final UserMapper userMapper;
+	private final UsuarioMapper usuarioMapper;
 	private final MessageService messageService;
 
 	@Autowired
-	public HomeController(final UserMapper userMapper,
+	public HomeController(final UsuarioMapper userMapper,
 			@Qualifier("b") final MessageService messageService) {
-		this.userMapper = userMapper;
+		this.usuarioMapper = userMapper;
 		this.messageService = messageService;
 	}
 
@@ -31,8 +30,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("users")
-	public List<UserBean> users() {
-		return this.userMapper.all();
+	public List<UsuarioBean> users() {
+		return this.usuarioMapper.all();
 	}
 
 	static class Message {
